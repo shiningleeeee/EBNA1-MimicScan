@@ -26,7 +26,8 @@ make archive     # copy the tables below back into this directory
 | `45_local_similarity.tsv`, `46_pair_null.tsv` | the unbiased channel: every alignment MMseqs2 reports, with its composition null |
 | `65_structure_real.tsv` | AlphaFold accessibility of each matched span |
 | `panel_paratope.tsv` | 50 peptide-Fab complexes, used to test whether an interface concentrates on one residue |
+| `60b_mmseqs_param_matrix.tsv`, `.json` | six-cell MMseqs2 audit separating composition correction from low-complexity masking (from `src/analysis/60_mmseqs_param_matrix.py`) |
+| `61b_trembl_expansion.tsv`, `.json` | library-scope audit: reviewed Swiss-Prot vs + human TrEMBL, each with a re-fitted windowed null (from `src/analysis/61_trembl_expansion.py`) |
 | `*_summary.json` | per-stage facts (counts, parameters, p values, caveats) |
-| `panel_paratope.tsv` | see above |
 
 Figures live in `docs/figures/`.

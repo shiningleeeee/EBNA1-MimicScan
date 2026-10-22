@@ -310,6 +310,39 @@ than trusting the report that quotes it. A stale `config.sha256` in
 
 ---
 
+## 8b. How far the negative claim reaches
+
+The claim used to be scoped to 20,431 reviewed human proteins, which invites the
+obvious objection. `src/analysis/61_trembl_expansion.py` answers it by rerunning
+the same search against reviewed Swiss-Prot **plus** human TrEMBL -- 205,766
+canonical entries after dropping 4,940 exact duplicates -- and re-fitting the
+windowed null inside that enlarged library rather than reusing the old one.
+
+| library | cutoff | alignments | genes hit | best E | E < 1 | overlap 90-330 | p |
+|---|---|---|---|---|---|---|---|
+| reviewed, 20 431 | -e 1e4 | 363 | 363 | 3.088 | 0 | 0 | 0.1493 |
+| + TrEMBL, 205 766 | -e 1e4 | 399 | 107 | 23.36 | 0 | 0 | 0.2736 |
+| reviewed, 20 431 | -e 1e6 | 1 012 | 1 010 | 3.088 | 0 | 0 | 0.1493 |
+| + TrEMBL, 205 766 | -e 1e6 | 7 338 | 1 608 | 23.36 | 0 | 1 | 0.2736 |
+
+Read the two cutoff pairs as a warning, not a detail: E-values scale with library
+size, so a fixed `-e` threshold silently drops 294 reviewed hits when the library
+grows tenfold (363 -> 107 genes). Comparing libraries at one cutoff therefore
+compares thresholds, not contents; the `-e 1e6` rows are the comparable pair.
+
+What the comparable pair says: a tenfold larger library multiplies alignments by
+7.3 and the number of human genes with any local similarity by 1.6 (1,010 ->
+1,608), because TrEMBL contributes fragments of proteins the reviewed set already
+reaches. It does **not** produce a single alignment below E = 1 -- there are nine
+below 100 and none below 10 -- and the real EBNA1's standing against its own
+composition-matched shuffles gets *worse*, not better (p 0.1493 -> 0.2736). The
+one alignment overlapping the Gly-Ala block, out of 7,338, sits at E = 9.3e4.
+
+So the negative claim now covers the canonical human proteome rather than the
+reviewed subset, and it got weaker rather than stronger in the process. What is
+not covered: isoform sequences (a separate database), near-duplicate clustering,
+and any pathogen protein other than EBNA1.
+
 ## 9. Reuse
 
 To run this on another pathogen protein:

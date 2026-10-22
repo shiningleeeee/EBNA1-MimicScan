@@ -1,0 +1,5 @@
+library	n_align	n_acc	n_gene	null_n_align_mean	best_e	n_below_1	region_overlap_ga	null_best_median	null_best_iqr	n_null	n_null_ge_real	p
+reviewed_e1e4	363	363	363	226.73	3.088	0	0	16.22	[5.368, 49.0]	200	29	0.1493
+reviewed_e1e6	1012	1012	1010	710.16	3.088	0	0	16.22	[5.368, 49.0]	200	29	0.1493
+combined_e1e4	399	399	107	275.45	23.36	0	0	70.59	[23.36, 161.8]	200	54	0.2736
+combined_e1e6	7338	7338	1608	4886.31	23.36	0	1	70.59	[23.36, 161.8]	200	54	0.2736

@@ -1,0 +1,186 @@
+{
+  "release": "2026_03",
+  "db": {
+    "reviewed_n": 20431,
+    "trembl_n": 190275,
+    "trembl_exact_duplicates_dropped": 4940,
+    "trembl_kept": 185335,
+    "combined_n": 205766,
+    "sha256": {
+      "reviewed": "bf1bc7e188e55199a2447fc20d25834db5f7f798daa818432370deb4a6b0df5e",
+      "trembl": "b4eb945e9176f4086ae919d55819e4726c50865aeeeb1aeea554b5eedc3d369e",
+      "combined": "2088e9b11f9db092ed5a2c7805be08d71c881a069953034aba3e5725c776f5ed"
+    }
+  },
+  "parameters": {
+    "mmseqs": "-s 7.5 --max-seqs 20000 -e {e} --comp-bias-corr 1 --threads 14 -a",
+    "format": "query,target,evalue,bits,alnlen,pident,qstart,qend,tstart,tend",
+    "window": 40,
+    "b": 200,
+    "seed": 9000,
+    "ga_block": [
+      90,
+      330
+    ],
+    "e_cutoffs": {
+      "e1e4": "10000",
+      "e1e6": "1000000"
+    }
+  },
+  "cells": {
+    "reviewed_e1e4": {
+      "n_align": 363,
+      "n_acc": 363,
+      "n_gene": 363,
+      "null_n_align_mean": 226.73,
+      "best_e": 3.088,
+      "n_below_1": 0,
+      "region_overlap_ga": 0,
+      "null_best_median": 16.22,
+      "null_best_iqr": [
+        5.368,
+        49.0
+      ],
+      "n_null": 200,
+      "n_null_ge_real": 29,
+      "p": 0.1493
+    },
+    "reviewed_e1e6": {
+      "n_align": 1012,
+      "n_acc": 1012,
+      "n_gene": 1010,
+      "null_n_align_mean": 710.16,
+      "best_e": 3.088,
+      "n_below_1": 0,
+      "region_overlap_ga": 0,
+      "null_best_median": 16.22,
+      "null_best_iqr": [
+        5.368,
+        49.0
+      ],
+      "n_null": 200,
+      "n_null_ge_real": 29,
+      "p": 0.1493
+    },
+    "combined_e1e4": {
+      "n_align": 399,
+      "n_acc": 399,
+      "n_gene": 107,
+      "null_n_align_mean": 275.45,
+      "best_e": 23.36,
+      "n_below_1": 0,
+      "region_overlap_ga": 0,
+      "null_best_median": 70.59,
+      "null_best_iqr": [
+        23.36,
+        161.8
+      ],
+      "n_null": 200,
+      "n_null_ge_real": 54,
+      "p": 0.2736
+    },
+    "combined_e1e6": {
+      "n_align": 7338,
+      "n_acc": 7338,
+      "n_gene": 1608,
+      "null_n_align_mean": 4886.31,
+      "best_e": 23.36,
+      "n_below_1": 0,
+      "region_overlap_ga": 1,
+      "null_best_median": 70.59,
+      "null_best_iqr": [
+        23.36,
+        161.8
+      ],
+      "n_null": 200,
+      "n_null_ge_real": 54,
+      "p": 0.2736
+    }
+  },
+  "published": {
+    "CRYAB": {
+      "acc": "P02511",
+      "in_library": true,
+      "alignments_in_combined": 0,
+      "best_e": null
+    },
+    "ANO2": {
+      "acc": "Q9NQ90",
+      "in_library": true,
+      "alignments_in_combined": 0,
+      "best_e": null
+    },
+    "MEF2B": {
+      "acc": "Q02080",
+      "in_library": true,
+      "alignments_in_combined": 0,
+      "best_e": null
+    },
+    "GlialCAM": {
+      "acc": "Q14CZ8",
+      "in_library": true,
+      "alignments_in_combined": 0,
+      "best_e": null
+    }
+  },
+  "genes": {
+    "e1e4": {
+      "hit_in_reviewed": 363,
+      "hit_in_combined": 107,
+      "new_in_combined": 38,
+      "lost_from_reviewed": 294,
+      "examples_new": [
+        "ADGRV1",
+        "ANAPC5",
+        "ARID1B",
+        "ATP8A1",
+        "CECR2",
+        "CLEC11A",
+        "COL6A3",
+        "DKFZp434J046",
+        "DKFZp667H197",
+        "DKFZp686B17238",
+        "DOCK6",
+        "FLJ00083",
+        "FLJ00378",
+        "GORASP2",
+        "HSD17B12",
+        "HUWE1",
+        "KHSRP",
+        "KIAA1688",
+        "LENG8",
+        "LZTR1"
+      ]
+    },
+    "e1e6": {
+      "hit_in_reviewed": 1010,
+      "hit_in_combined": 1608,
+      "new_in_combined": 645,
+      "lost_from_reviewed": 47,
+      "examples_new": [
+        "AAG1",
+        "ABCC4",
+        "ABCD4",
+        "ACE",
+        "ACHE",
+        "ACSF2",
+        "ACSL4",
+        "ACSM3",
+        "ACTN2",
+        "ADAM15",
+        "ADAM17",
+        "ADAM33",
+        "ADAMTSL4",
+        "ADCY4",
+        "ADCY5",
+        "ADGRB2",
+        "ADGRV1",
+        "ADIG",
+        "AF10",
+        "AGAP2"
+      ]
+    }
+  },
+  "note": "exact-duplicate sequences between TrEMBL and Swiss-Prot are dropped; near-duplicates are not clustered, so the enlarged library is a union of canonical entries rather than a non-redundant set. Isoform sequences are absent. Because TrEMBL holds fragments of already-reviewed proteins, the accession count overstates what was added; the gene count is the honest one.",
+  "seconds": 38.0
+}
