@@ -230,6 +230,10 @@ reports/               all generated; safe to delete and rebuild (not committed)
 
 ## Licence and data
 
+The code, documentation and derived tables are MIT (`LICENSE`); the upstream
+data each table is derived from keeps its own licence and is not redistributed
+here — see `DATA-LICENCES.md`.
+
 Code, documentation and derived tables: MIT (see `LICENSE`). No upstream
 sequence, structure or annotation data is redistributed: `data/MANIFEST.tsv`
 records where each input came from and its SHA256, and `make data` refetches it

@@ -19,19 +19,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
----
-
-The MIT licence above covers the code, the documentation and the derived tables
-in this repository. It does not cover the upstream data these tables are derived
-from. No upstream sequence, structure or annotation data is redistributed here:
-`data/MANIFEST.tsv` records the source URL, the release and the SHA256 of each
-input, and `make data` refetches it from the original providers, each under its
-own licence:
-
-  UniProtKB (sequences, annotations, maturation features)  CC BY 4.0
-  AlphaFold DB (predicted structures)                      CC BY 4.0
-  RCSB PDB (experimental structures)                       CC0 1.0
-  Human Protein Atlas (expression, clusters)               CC BY 4.0
-  IEDB (B-cell assay records)                              as declared per record
-  PubMed / Europe PMC (retrieved text)                     as declared per record
