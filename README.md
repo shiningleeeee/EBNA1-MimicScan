@@ -113,6 +113,8 @@ from filtering at all:
 The full method — scope and refusals, the four-rung null ladder with its
 resolution arithmetic, quantity-versus-quality separation, the provenance
 contract, and what would change the answer — is in [`METHOD.md`](METHOD.md).
+What is left to do, what it would cost, and which sentence each item would change
+is in [`ROADMAP.md`](ROADMAP.md).
 
 ## Result in one line
 
@@ -201,6 +203,7 @@ ability of a composition-matched peptide to reach the same score, which is what
 ```
 config.yaml            every parameter; its hash is recorded in the run manifest
 METHOD.md              the rule: which axes may rank, and how a null is chosen
+ROADMAP.md             what is left, what it costs, which sentence it changes
 data/MANIFEST.tsv      accession/url -> sha256 + UniProt release (verified at s00)
 data/cache/            fetched inputs and HTTP caches (rebuildable, not committed)
 src/phmimic/           the pipeline package (core, mining, scan, seeds, score,
