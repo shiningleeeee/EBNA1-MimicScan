@@ -42,3 +42,39 @@ repository adds is the composition control, applied consistently.
 without data), byte-identical output across two full runs, and a CI job that
 builds the C scanners, runs the tests and checks that every stage module is
 registered.
+
+## Post-1.0.0 analyses — 2026-10-22
+
+Three items from `ROADMAP.md` section A, each an *analysis* rather than a pipeline
+change: they add frozen tables under `docs/results/` and edit prose, but no stage
+and no axis threshold changes, so the version stays 1.0.0 and the existing frozen
+tables remain valid.
+
+**A1 — composition correction, measured.** `src/analysis/60_mmseqs_param_matrix.py`.
+Six cells over {database masking on/off} × {`--comp-bias-corr` 1/0}, each with its
+own 40-aa windowed null. Turning composition correction off lets the Gly-Ala block
+collect 1,254 and 1,696 alignments at E = 0.0, and every such cell fails its own
+null (p = 0.995, 0.881). The zero overlap reported in 1.0.0 is that correction
+working — not tantan masking, which changes totals without changing overlap.
+`DOSSIER.md` §16 and `METHOD.md` now attribute the effect instead of calling the
+cause undetermined.
+
+**A2 — the negative claim widened.** `src/analysis/61_trembl_expansion.py`.
+205,766 canonical human entries (20,431 reviewed + 185,335 unreviewed after
+dropping 4,940 exact duplicates; no near-duplicate clustering, since clustering is
+itself a choice that changes the search space). No alignment reaches E < 1; the
+best is 23.36. A tenfold library multiplies alignments by 7.3 and
+genes-with-any-similarity by 1.6, and the real EBNA1's standing against its own
+shuffles gets *worse* (p 0.1493 → 0.2736). Reported at two `-e` cutoffs because a
+fixed E cutoff compares thresholds, not contents, once library size changes.
+
+**A3 — a fifth axis, this time from structural data.** `src/analysis/62_paratope_contact_identity.py`.
+At the 10 EBNA1 residues that MS39p2w174 actually contacts in 7K7R (262 heavy-atom
+contacts), the crystallised binder GlialCAM `Q14CZ8` shares 5 of 10. Candidates
+COBL shares 7 of 10, MAPK8IP2 5 of 6, PPP2R3B 2 of 3 — all far above the random
+same-register mean of 0.064. The verified binder is not the highest scorer, so
+contact identity is real but not discriminating: the fifth axis to fail a positive
+control, and the first to fail one built on measured structure rather than
+sequence. The wet half (7K7R Fab × MAPK8IP2 peptide) is blocked: MS39p2w174 is not
+a catalogue antibody.
+
