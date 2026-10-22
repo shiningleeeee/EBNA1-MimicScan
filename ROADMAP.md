@@ -31,7 +31,37 @@ indefensible one.
 
 ## A. Doable now, no new science required
 
+**Status, 2026-10-22.** A1 and A2 are done, with outputs frozen in
+`docs/results/`. A3's computational half is done and came back negative; A3's wet
+half and all of A4 are blocked on reagents rather than on method.
+
+| item | state | what it changed |
+|---|---|---|
+| A1 | **done** | `DOSSIER.md` §16 and `METHOD.md` no longer say "cause not determined": composition correction is the mechanism, measured over six cells (`docs/results/60b_mmseqs_param_matrix.tsv`) |
+| A2 | **done** | the negative claim now covers 205,766 canonical human entries instead of 20,431 reviewed ones, and got *weaker* rather than stronger (`docs/results/61b_trembl_expansion.tsv`) |
+| A3 | half done, **negative** | a fifth statistic — identity at the residues the Fab actually contacts — puts the crystallised binder *inside* the candidate range (`docs/results/62b_paratope_contact_identity.tsv`) |
+| A4 | **not started** | wet lab; see the peptide list below |
+
+Three numbers worth carrying, because each one is the kind that gets quoted back:
+
+- **A1.** With `--comp-bias-corr 0` the Gly-Ala block collects 1,254 / 1,696
+  alignments at E = 0.0, and *every such cell fails its own windowed null*
+  (p = 0.995 / 0.881). The zero overlap in the published run is composition
+  correction working, and the uncorrected alternative is exactly the artefact
+  this project exists to remove.
+- **A2.** A tenfold library multiplies alignments by 7.3 and genes-with-any-
+  similarity by 1.6, produces no alignment below E = 1, and makes the real
+  EBNA1's standing against its own shuffles worse: p 0.1493 → 0.2736.
+- **A3.** At the 10 EBNA1 positions MS39p2w174 actually touches, GlialCAM — a
+  verified binder with a crystal structure — shares 5 of 10. Candidates COBL,
+  MAPK8IP2 and PPP2R3B share 7/10, 5/6 and 2/3. Contact identity therefore does
+  not separate a real binder from an unvalidated match, which is the same verdict
+  the sequence statistics earned, now from structural data.
+
 ### A1. MMseqs2 low-complexity / composition-correction matrix
+
+**Status: done.** `src/analysis/60_mmseqs_param_matrix.py`,
+`docs/results/60b_mmseqs_param_matrix.tsv`.
 
 **Why.** `docs/DOSSIER.md` §16 says the Gly-Ala block is hit by 0 of 363
 alignments and that the contributions of (i) MMseqs2's default low-complexity
@@ -71,6 +101,15 @@ and every E-value and every null distribution is a function of database size.
 
 **Cost.** 2–3 hours of compute plus the recalibration; ~1 GB disk.
 
+**Done, and differently from the plan above.** `src/analysis/61_trembl_expansion.py`,
+`docs/results/61b_trembl_expansion.tsv`. Near-duplicates were **not** clustered:
+clustering is itself a modelling choice that changes the search space, so the
+library is a union of canonical entries with exact duplicates removed (4,940
+dropped, 205,766 kept). Both a tight and a loose `-e` cutoff are reported, because
+E-values scale with library size and a single cutoff compares thresholds rather
+than contents. The scope clause in `METHOD.md` §8b now reads reviewed + TrEMBL
+rather than "reviewed only".
+
 **Changes.** `METHOD.md` §0 scope clause ("reviewed only") → "reviewed +
 redundancy-reduced TrEMBL"; §8's "0 of 363" numbers get re-derived.
 
@@ -92,6 +131,30 @@ no reliable model, this is a modelling exercise, and see "three things not to do
 item 3.
 
 **Cost.** Half a day modelling; weeks if a reagent must be sourced.
+
+**Result, computational half only.** `src/analysis/62_paratope_contact_identity.py`,
+`docs/results/62b_paratope_contact_identity.tsv`. The precondition is not met —
+MS39p2w174 is not a catalogue antibody, so the only route is recombinant Fab from
+the chains deposited in 7K7R / 7UQC. What could be done without a reagent was to
+ask whether candidates keep the residues this Fab actually touches: of the 262
+heavy-atom contacts, 10 EBNA1 residues carry them all (R396 56, P395 44, P398 38,
+R397 36, then single digits).
+
+| pair | contacts covered | identical | simple | weighted |
+|---|---|---|---|---|
+| GlialCAM `Q14CZ8` (**verified binder**) | 10 | 5 | 0.500 | 0.668 |
+| COBL `O75128` (candidate) | 10 | 7 | 0.700 | 0.741 |
+| MAPK8IP2 `Q13387` (candidate) | 6 | 5 | 0.833 | 0.818 |
+| PPP2R3B `Q9Y5P8` (candidate) | 3 | 2 | 0.667 | 0.513 |
+
+Random human peptides at the same register average 0.064. So every one of these
+is far above random, and the verified binder is **not** the highest — COBL is.
+The statistic is therefore real but not discriminating, which makes it the fifth
+axis to fail a positive control and the first to fail one built on experimental
+structural data rather than on sequence. A candidate scoring above random here is
+not evidence of binding; it is evidence that this paratope's contacts can be
+satisfied by composition. That verdict is the item's outcome, and it does not
+justify buying an antibody.
 
 **Changes.** `CANDIDATES.md` MAPK8IP2 card's `unknowns` field; possibly a
 `docs/results/74_*` table with the interface energy comparison.

@@ -22,6 +22,7 @@ channel and the IEDB layer now runs as numbered stages via `bash run.sh`:
 | `panel_paratope.py`, `probe_paratope.py`, `probe_read_motif.py` | not in the pipeline: the 50-complex paratope panel is a one-off check, archived in `docs/results/panel_paratope.tsv` |
 | `56_almulla_null.py`, `57_almulla_specificity.py` | not in the pipeline: their input is a published paper, not this project's candidate set |
 | `61_trembl_expansion.py` | **not superseded** — the library-scope audit: reruns the unbiased search against reviewed Swiss-Prot plus human TrEMBL (205,766 canonical entries) and re-fits the windowed null in the enlarged library. Output frozen in `docs/results/61b_trembl_expansion.tsv` |
+| `62_paratope_contact_identity.py` | **not superseded** — the contact-level reading of 7K7R: which of the residues the Fab actually touches does a candidate keep? Output frozen in `docs/results/62b_paratope_contact_identity.tsv` |
 | `legacy/01..14` | the first five rounds; kept for provenance only |
 | `s45_window_scan_never_run.py` | **written, never registered, never run.** A windowed-shuffle scan of all 641 EBNA1 residues that was designed and then abandoned; the pipeline's unbiased channel is `s61`-`s63`. It lives here rather than under `stages/` because `make check-stages` fails on any stage module the runner does not know about, and registering code that was never run would misrepresent it. |
 

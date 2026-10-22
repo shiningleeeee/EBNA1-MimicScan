@@ -1,0 +1,4 @@
+acc	gene	ebna1_span	target_span	aln_len	identity_pct	null_simple_mean	null_simple_p95	null_weighted_mean	n_contact_positions	n_identical	contact_identity	weighted
+P31321	PRKAR1B	564-587	20-43	24	41.6				0	0		
+Q6PJF5	RHBDF2	541-562	339-360	22	45.4				0	0		
+Q13387	MAPK8IP2	394-429	309-341	37	54.0	0.0637	0.3333	0.0627	6	5	0.8333	0.8182

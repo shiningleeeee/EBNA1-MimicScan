@@ -1,0 +1,129 @@
+{
+  "paratope": {
+    "pdb": "7K7R",
+    "cutoff_angstrom": 4.5,
+    "n_touching_residues": 10,
+    "total_contacts": 262,
+    "profile": {
+      "390": 16,
+      "391": 21,
+      "392": 10,
+      "393": 17,
+      "394": 20,
+      "395": 44,
+      "396": 56,
+      "397": 36,
+      "398": 38,
+      "399": 4
+    }
+  },
+  "pairs": [
+    {
+      "acc": "P31321",
+      "gene": "PRKAR1B",
+      "ebna1_span": "564-587",
+      "target_span": "20-43",
+      "aln_len": "24",
+      "identity_pct": "41.6",
+      "null_simple_mean": null,
+      "null_simple_p95": null,
+      "null_weighted_mean": null,
+      "n_contact_positions": 0,
+      "n_identical": 0,
+      "contact_identity": null,
+      "weighted": null,
+      "differing": []
+    },
+    {
+      "acc": "Q6PJF5",
+      "gene": "RHBDF2",
+      "ebna1_span": "541-562",
+      "target_span": "339-360",
+      "aln_len": "22",
+      "identity_pct": "45.4",
+      "null_simple_mean": null,
+      "null_simple_p95": null,
+      "null_weighted_mean": null,
+      "n_contact_positions": 0,
+      "n_identical": 0,
+      "contact_identity": null,
+      "weighted": null,
+      "differing": []
+    },
+    {
+      "acc": "Q13387",
+      "gene": "MAPK8IP2",
+      "ebna1_span": "394-429",
+      "target_span": "309-341",
+      "aln_len": "37",
+      "identity_pct": "54.0",
+      "null_simple_mean": 0.0637,
+      "null_simple_p95": 0.3333,
+      "null_weighted_mean": 0.0627,
+      "n_contact_positions": 6,
+      "n_identical": 5,
+      "contact_identity": 0.8333,
+      "weighted": 0.8182,
+      "differing": [
+        [
+          397,
+          "R",
+          "E"
+        ]
+      ]
+    }
+  ],
+  "null": {
+    "P31321": {},
+    "Q6PJF5": {},
+    "Q13387": {
+      "n": 1990,
+      "simple_mean": 0.0637,
+      "simple_p95": 0.3333,
+      "weighted_mean": 0.0627,
+      "weighted_p95": 0.2828
+    }
+  },
+  "covering_candidates": [
+    {
+      "acc": "O75128",
+      "gene": "COBL",
+      "ebna1_span": "383-404",
+      "n_contact_positions": 10,
+      "n_identical": 7,
+      "contact_identity": 0.7,
+      "weighted": 0.7405
+    },
+    {
+      "acc": "Q13387",
+      "gene": "MAPK8IP2",
+      "ebna1_span": "394-429",
+      "n_contact_positions": 6,
+      "n_identical": 5,
+      "contact_identity": 0.8333,
+      "weighted": 0.8182
+    },
+    {
+      "acc": "Q9Y5P8",
+      "gene": "PPP2R3B",
+      "ebna1_span": "397-417",
+      "n_contact_positions": 3,
+      "n_identical": 2,
+      "contact_identity": 0.6667,
+      "weighted": 0.5128
+    }
+  ],
+  "reference_binder": {
+    "acc": "Q14CZ8",
+    "gene": "GlialCAM",
+    "ebna1_span": "386-405",
+    "target_span": "370-389",
+    "pairing": "straight 20-mer register, no gaps",
+    "n_contact_positions": 10,
+    "n_identical": 5,
+    "contact_identity": 0.5,
+    "weighted": 0.6679
+  },
+  "note": "contact_identity compares only EBNA1 positions the antibody touches in 7K7R; weighted weights each position by its heavy-atom contact count. Whole-window identity and contact-level identity are different questions, and only the second one is about this antibody. A candidate above the null p95 is worth an assay; a candidate above the null p95 while a known binder sits far below it is evidence that the statistic does not track binding, not evidence that the candidate binds.",
+  "reagent_status": "MS39p2w174 is not a catalogue antibody; the only route is recombinant expression of the Fab chains deposited in 7K7R / 7UQC."
+}

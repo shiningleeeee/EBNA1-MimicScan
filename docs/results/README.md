@@ -28,6 +28,7 @@ make archive     # copy the tables below back into this directory
 | `panel_paratope.tsv` | 50 peptide-Fab complexes, used to test whether an interface concentrates on one residue |
 | `60b_mmseqs_param_matrix.tsv`, `.json` | six-cell MMseqs2 audit separating composition correction from low-complexity masking (from `src/analysis/60_mmseqs_param_matrix.py`) |
 | `61b_trembl_expansion.tsv`, `.json` | library-scope audit: reviewed Swiss-Prot vs + human TrEMBL, each with a re-fitted windowed null (from `src/analysis/61_trembl_expansion.py`) |
+| `62b_paratope_contact_identity.tsv`, `.json` | contact-level identity against the 7K7R paratope for every candidate covering a contacting residue, with random-peptide and known-binder reference points (from `src/analysis/62_paratope_contact_identity.py`) |
 | `*_summary.json` | per-stage facts (counts, parameters, p values, caveats) |
 
 Figures live in `docs/figures/`.
