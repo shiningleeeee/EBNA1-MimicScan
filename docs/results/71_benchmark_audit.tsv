@@ -1,0 +1,6 @@
+gene	acc	region	reachable	in_unbiased_channel	n_alignments_in_channel	overlaps_claimed_region	best_evalue	verdict
+CRYAB	P02511	11-16	True	no	0	0		not_recovered
+ANO2	Q9NQ90	140-149	True	no	0	0		not_recovered
+MEF2B	Q02080	272-277	True	no	0	0		not_recovered
+HEPACAM	Q14CZ8	370-389	False	no	0	0		not_recovered
+MBP	P02686	411-426	False	no	0	0		not_recovered

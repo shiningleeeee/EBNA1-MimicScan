@@ -6,9 +6,10 @@
 A reproducibility-first screen for human proteins that the immune system could
 mistake for EBNA1, and the negative results that constrain it.
 
-**Read this first:** `docs/results/CANDIDATES.md` (the candidate list),
-`METHOD.md` (the rule every ranking axis must pass), `docs/results/REPORT.md`
-(the numbers, rendered from the tables).
+**Read this first:** [`HANDOFF.md`](HANDOFF.md) (where the project stands and what
+is open), `docs/results/CANDIDATES.md` (the candidate list), `METHOD.md` (the rule
+every ranking axis must pass), `docs/results/REPORT.md` (the numbers, rendered from
+the tables).
 
 Screen for human proteins that the immune system could mistake for EBNA1.
 
@@ -202,6 +203,7 @@ ability of a composition-matched peptide to reach the same score, which is what
 
 ```
 config.yaml            every parameter; its hash is recorded in the run manifest
+HANDOFF.md             where the project stands, what is open, how to resume
 METHOD.md              the rule: which axes may rank, and how a null is chosen
 ROADMAP.md             what is left, what it costs, which sentence it changes
 data/MANIFEST.tsv      accession/url -> sha256 + UniProt release (verified at s00)

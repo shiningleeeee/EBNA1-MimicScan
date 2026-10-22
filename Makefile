@@ -72,6 +72,7 @@ archive:
 		62b_paratope_contact_identity.tsv 62b_paratope_contact_identity.json \
 		65_structure_real.tsv 72_axis_validation.tsv 72_axis_positives.tsv \
 		73_candidate_cards.tsv 73_candidate_cards_summary.json \
+		71_benchmark_audit.tsv \
 		40_null_calibration.json 60_composition_summary.json \
 		61_mmseqs_summary.json 62_pair_null_summary.json \
 		63_selection_summary.json 64_composite_summary.json \
