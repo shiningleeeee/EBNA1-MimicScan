@@ -1,0 +1,28 @@
+cff-version: 1.2.0
+message: "If you use this software or its output tables, cite it as below."
+title: "EBNA1-MimicScan"
+abstract: >-
+  A reproducibility-first screen for human proteins that the immune system could
+  mistake for EBNA1. Two deliberately separate channels: an anchored screen
+  starting from the antibody-validated EBNA1 386-440 epitope region, and an
+  unbiased screen of all 641 EBNA1 residues against 20,431 reviewed human
+  proteins. Every candidate is calibrated against same-composition shuffles, and
+  every candidate-ranking axis is first validated against the published mimics it
+  is supposed to recover.
+type: software
+license: MIT
+repository-code: "https://github.com/shiningleeeee/EBNA1-MimicScan"
+keywords:
+  - molecular mimicry
+  - Epstein-Barr virus
+  - EBNA1
+  - multiple sclerosis
+  - composition-controlled null model
+  - reproducibility
+authors:
+  # EDIT BEFORE PUBLISHING: family-name / given-names are placeholders taken from
+  # the local git configuration.
+  - family-names: "Li"
+    given-names: "Xiang"
+version: "1.0.0"
+date-released: "2026-10-22"

@@ -1,0 +1,15 @@
+{
+  "low_complexity_rule": "EBNA1 window entropy < 3.0 bits or one residue above 30%",
+  "n_candidates": 55,
+  "n_cards": 12,
+  "n_normal_composition": 46,
+  "n_null_tail_cleared": 18,
+  "n_query_low_complexity": 9,
+  "n_shortlist": 12,
+  "ordering": "shortlist first, then null_cleared, then margin_z descending",
+  "ordering_caveat": "margin_z is not selective (s72 keeps 0.92 of the pool at z>=3 and 0.42 at z>=6, recovering 0 of 4 published mimics); null_cleared is a hard ceiling, not a p-value",
+  "shortlist_rule": "aln_len >= 20 and identity >= 40.0 and (CNS or surface or accessible)",
+  "top_gene": "PRKAR1B",
+  "top_longest_run": 4,
+  "top_margin_z": 10.8728
+}

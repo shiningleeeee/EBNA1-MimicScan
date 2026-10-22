@@ -1,0 +1,26 @@
+{
+  "calls": {
+    "no": 41,
+    "not_modelled": 4,
+    "yes": 10
+  },
+  "caveat": "pLDDT is model confidence, not truth; rSASA is computed on the single predicted conformer; conformational ensembles, PTMs and binding partners are not represented. This axis has no positive control -- all four published EBNA1 epitopes are disordered -- so it annotates and sorts, it does not filter.",
+  "min_margin_z": 3.0,
+  "n_both_folded_exposed": 10,
+  "n_in": 363,
+  "n_selected": 55,
+  "n_target_models_attempted": 55,
+  "selection": [
+    "maturation retained",
+    "aln_len >= 20",
+    "identity >= 40",
+    "outside Gly/Ala block",
+    "margin_z >= min_margin_z"
+  ],
+  "structure_params": {
+    "exposed_rsasa": 0.25,
+    "folded_plddt": 70.0,
+    "probe_radius": 1.4,
+    "sphere_points": 92
+  }
+}

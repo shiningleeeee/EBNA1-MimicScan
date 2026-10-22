@@ -1,0 +1,37 @@
+{
+  "n_entries_considered": 52,
+  "n_usable_complexes": 50,
+  "skipped": {
+    "no_pdb": 1,
+    "no_fab": 0,
+    "no_peptide_contacts": 1
+  },
+  "parameters": {
+    "cutoff_a": 4.5,
+    "peptide_min": 5,
+    "peptide_max": 25,
+    "fab_min": 100,
+    "min_contacts": 20,
+    "dominant_neighbour": 2
+  },
+  "dominant_share": {
+    "min": 0.1587,
+    "median": 0.2448,
+    "max": 0.617,
+    "n_ge_0_30": 6,
+    "n_ge_0_40": 1,
+    "n_total": 50
+  },
+  "read_pattern_proteome_fraction": {
+    "min": 0.028143507415202388,
+    "median": 0.07679506632078704,
+    "max": 0.20958347609025502,
+    "n_proteome": 20431
+  },
+  "pentapeptide_proteome_fraction": {
+    "min": 0.0,
+    "median": 4.89452302873085e-05,
+    "max": 9.7890460574617e-05
+  },
+  "note": "Panel is PDB peptide-antibody complexes: entries that can be crystallised are a biased sample and this panel contains no EBNA1 complex. It tests whether 'one residue carries the interface' is typical of paratopes, not whether EBNA1 mimicry is special."
+}

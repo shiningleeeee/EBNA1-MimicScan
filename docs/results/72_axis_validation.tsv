@@ -1,0 +1,11 @@
+axis	kind	rule	positives_passing	positives_total	positives_lost	pool_base	pool_retained_fraction	verdict	consequence
+maturation	hard_constraint	matched span must survive proteolytic maturation	4	4	-	maturated (363)	0.9669	pass	applied as a hard filter
+min_alignment_length	ranking_axis	aligned length >= 20 aa	1	4	ANO2, CRYAB, MEF2B	scored (363)	0.6446	fail: loses positives	may not be used to filter or order candidates
+min_identity	ranking_axis	percent identity >= 40	3	4	HEPACAM	scored (363)	0.4931	fail: not selective	may not be used to filter or order candidates
+margin_z_final	ranking_axis	composition-null margin z >= 3	3	4	HEPACAM	scored (363)	0.9201	fail: not selective	may not be used to filter or order candidates
+margin_z_iedb	ranking_axis	composition-null margin z >= 6	0	4	ANO2, CRYAB, MEF2B, HEPACAM	scored (363)	0.416	fail: loses positives	may not be used to filter or order candidates
+target_normal	ranking_axis	target window entropy >= ent_min and max residue <= maxfrac	0	4	ANO2, CRYAB, MEF2B, HEPACAM	scored (363)	0.8072	fail: loses positives	may not be used to filter or order candidates
+query_folded_exposed	ranking_axis	EBNA1-side span folded and exposed in the AlphaFold model	0	4	ANO2, CRYAB, MEF2B, HEPACAM	layered (55)	0.2364	fail: loses positives	may not be used to filter or order candidates
+both_folded_exposed	ranking_axis	both spans folded and exposed	0	4	ANO2, CRYAB, MEF2B, HEPACAM	layered (55)	0.1818	fail: loses positives	may not be used to filter or order candidates
+comp_accessible	annotation	target annotated secreted / membrane / extracellular	3	4	MEF2B	layered (55)	0.2182	annotation_only	may be displayed, never used to filter or order
+composite_score	ranking_axis	declared eight-axis composite score >= 6	0	4	ANO2, CRYAB, MEF2B, HEPACAM	scored (363)	0.4683	fail: loses positives	may not be used to filter or order candidates

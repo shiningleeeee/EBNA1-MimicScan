@@ -1,0 +1,5 @@
+gene	acc	ebna1_start	ebna1_end	t_start	t_end	aln_len	identity	margin_z	score	processing_call	retained	query_plddt	query_struct	query_folded_exposed	target_plddt	target_struct	target_folded_exposed	both_folded_exposed	comp_accessible	reachable
+ANO2	Q9NQ90	431	440	140	149	10	70.0	5.0108	5	retained_in_chain	True	26.0	disordered_or_loop_exposed	False	51.5	disordered_or_loop_exposed	False	False	True	True
+CRYAB	P02511	402	406	11	16	5	100.0	4.6603	4	retained_in_chain	True	27.0	disordered_or_loop_exposed	False	45.6	disordered_or_loop_exposed	False	False	True	True
+MEF2B	Q02080	394	399	272	277	6	100.0	4.1326	4	retained_in_chain	True	30.4	disordered_or_loop_exposed	False	62.2	disordered_or_loop_exposed	False	False	False	True
+HEPACAM	Q14CZ8	386	405	370	389	20	30.0	0.865	4	retained_in_chain	True	28.2	disordered_or_loop_exposed	False	50.3	disordered_or_loop_exposed	False	False	True	False

@@ -1,0 +1,15 @@
+seed_id	seed_motif	acc	gene	name	pos	n_ident	motif_len	ident	seq_pts	cns	surface	score	matched	published
+C1	PPRRPP	Q02246	CNTN2	Contactin-2 (Axonal glycoprotein TAG-1) (Axonin-1) (Transien	911	6	6	1.0	2	1	1	4	PPRRPP	
+C2	RRPFF	Q9HCI5	MAGEE1	Melanoma-associated antigen E1 (Alpha-dystrobrevin-associate	710	5	5	1.0	2	1	1	4	RRPFF	
+C3	PGAIEQGPAD	Q9NQ90	ANO2	Anoctamin-2 (Transmembrane protein 16B)	140	7	10	0.7	1	1	1	3	PGDIELGPLD	ANO2
+C1	PPRRPP	Q02080	MEF2B	Myocyte-specific enhancer factor 2B (RSRFR2) (Serum response	272	6	6	1.0	2	1	0	3	PPRRPP	MEF2B
+C2	RRPFF	P02511	CRYAB	Alpha-crystallin B chain (Alpha(B)-crystallin) (Heat shock p	11	5	5	1.0	2	0	1	3	RRPFF	CRYAB
+C3	PGAIEQGPAD	Q96BY6	DOCK10	Dedicator of cytokinesis protein 10 (Zizimin-3)	1550	7	10	0.7	1	1	0	2	PSAFFQGPAD	
+C3	PGAIEQGPAD	O43493	TGOLN2	Trans-Golgi network integral membrane protein 2 (Trans-Golgi	224	7	10	0.7	1	0	1	2	SGAEEQGPID	
+C1	PPRRPP	A1X283	SH3PXD2B	SH3 and PX domain-containing protein 2B (Adapter protein HOF	758	6	6	1.0	2	0	0	2	PPRRPP	
+C1	PPRRPP	P48634	PRRC2A	Protein PRRC2A (HLA-B-associated transcript 2) (Large prolin	1706	6	6	1.0	2	0	0	2	PPRRPP	
+C1	PPRRPP	Q5T089	MORN1	MORN repeat-containing protein 1	18	6	6	1.0	2	0	0	2	PPRRPP	
+C1	PPRRPP	Q8N201	INTS1	Integrator complex subunit 1 (Int1)	841	6	6	1.0	2	0	0	2	PPRRPP	
+C2	RRPFF	Q9H4Z2	ZNF335	Zinc finger protein 335 (NRC-interacting factor 1) (NIF-1)	720	5	5	1.0	2	0	0	2	RRPFF	
+C3	PGAIEQGPAD	Q07864	POLE	DNA polymerase epsilon catalytic subunit A (EC 2.7.7.7) (3'-	1304	7	10	0.7	1	0	0	1	PGAIRDGPAT	
+C3	PGAIEQGPAD	Q96L42	KCNH8	Voltage-gated delayed rectifier potassium channel KCNH8 (ELK	973	7	10	0.7	1	0	0	1	TGAHEQNPAD	

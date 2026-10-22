@@ -1,0 +1,3 @@
+file	source_url	uniprot_release	release_date	fetched_utc	sha256	n_seqs	note
+P03211.fasta	https://rest.uniprot.org/uniprotkb/P03211.fasta	2026_03	2026-09-02	2026-10-21T12:46:53Z	56d0ecacb15063e79976c62b02882ad0f49f0cb83a26a5868e51311e18ab9b0a	1	EBNA1_EBVB9 641 aa (strain B95-8)
+human_swissprot.fasta	https://rest.uniprot.org/uniprotkb/stream?query=organism_id:9606+AND+reviewed:true&format=fasta	2026_03	2026-09-02	2026-10-21T12:46:53Z	bf1bc7e188e55199a2447fc20d25834db5f7f798daa818432370deb4a6b0df5e	20431	Homo sapiens, reviewed (Swiss-Prot) only

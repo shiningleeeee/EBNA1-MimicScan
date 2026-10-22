@@ -1,0 +1,21 @@
+{
+  "b": 10000,
+  "flank": 5,
+  "length_bias": {
+    "note": "n_ge==0 rate falls monotonically with alignment length (short windows saturate), which is the opposite direction from the E-value length bias",
+    "rate_by_length_bin": {
+      "10-15": 0.6207,
+      "15-20": 0.3846,
+      "20-30": 0.2941,
+      "30-50": 0.1485,
+      "50+": 0.0417
+    }
+  },
+  "margin_z_max": 11.16,
+  "margin_z_median": 5.669,
+  "margin_z_min": 0.602,
+  "n_alignments": 363,
+  "n_ge_le_2": 181,
+  "n_ge_zero": 105,
+  "seed": 42
+}

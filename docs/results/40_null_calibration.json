@@ -1,0 +1,73 @@
+{
+  "calibration": [
+    {
+      "best_acc": "Q02246",
+      "best_gene": "CNTN2",
+      "best_score": 4,
+      "length": 6,
+      "motif": "PPRRPP",
+      "n_proteins": 6,
+      "null_A": {
+        "n_null": 14,
+        "n_null_ge": 12,
+        "n_null_present": 14,
+        "null_max": 4,
+        "null_median_present": 4.0,
+        "p_conditional": 0.8667,
+        "p_unconditional": 0.8667
+      },
+      "null_B": {
+        "n_null": 200,
+        "n_null_ge": 29,
+        "n_null_present": 200,
+        "null_max": 4,
+        "null_median_present": 3.0,
+        "p_conditional": 0.1493,
+        "p_unconditional": 0.1493
+      },
+      "null_B_note": "",
+      "seed_id": "C1"
+    },
+    {
+      "best_acc": "Q9HCI5",
+      "best_gene": "MAGEE1",
+      "best_score": 4,
+      "length": 5,
+      "motif": "RRPFF",
+      "n_proteins": 3,
+      "null_A": {
+        "n_null": 29,
+        "n_null_ge": 7,
+        "n_null_present": 28,
+        "null_max": 4,
+        "null_median_present": 3.0,
+        "p_conditional": 0.2759,
+        "p_unconditional": 0.2667
+      },
+      "null_B": null,
+      "null_B_note": "N_B seeds differ in length; not comparable",
+      "seed_id": "C2"
+    },
+    {
+      "best_acc": "Q9NQ90",
+      "best_gene": "ANO2",
+      "best_score": 3,
+      "length": 10,
+      "motif": "PGAIEQGPAD",
+      "n_proteins": 5,
+      "null_A": {
+        "n_null": 200,
+        "n_null_ge": 68,
+        "n_null_present": 196,
+        "null_max": 3,
+        "null_median_present": 2.0,
+        "p_conditional": 0.3503,
+        "p_unconditional": 0.3433
+      },
+      "null_B": null,
+      "null_B_note": "N_B seeds differ in length; not comparable",
+      "seed_id": "C3"
+    }
+  ],
+  "note": "null_A permutes each real seed's own residues; null_B is unrelated random 6-mers of a different length for C2/C3 and is therefore reported but not used there"
+}

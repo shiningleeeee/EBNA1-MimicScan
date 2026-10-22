@@ -1,0 +1,22 @@
+{
+  "block": [
+    90,
+    330
+  ],
+  "block_ga_fraction": 0.995851,
+  "block_length": 241,
+  "block_n_distinct": 3,
+  "block_non_ga": [
+    {
+      "aa": "R",
+      "pos": 329
+    }
+  ],
+  "block_windows_ga_max": 1.0,
+  "block_windows_ga_min": 0.95,
+  "profile_max_ga_outside_block": 0.95,
+  "query": "P03211",
+  "query_length": 641,
+  "window": 20,
+  "windows_fully_inside_block": 222
+}

@@ -1,0 +1,59 @@
+{
+  "inner_b": 2000,
+  "inner_resolution_floor": 0.00049975,
+  "n_shuffles": 200,
+  "note": "best_p saturates at the inner resolution floor for both the real query and the shuffles, so it carries no information in the tail.",
+  "null_n_align_mean": 19.4,
+  "null_n_align_sd": 9.3018,
+  "p_selection_n_align": 0.004975124378109453,
+  "real_n_align": 363,
+  "resolution_floor": 0.004975,
+  "seed": 42,
+  "stats": {
+    "best_p": {
+      "n_null_ge": 200,
+      "null_max": 0.0005,
+      "null_mean": 0.0005,
+      "null_min": 0.0005,
+      "null_sd": 0.0,
+      "p": 1.0,
+      "real": 0.00049975
+    },
+    "n_align": {
+      "n_null_ge": 0,
+      "null_max": 55.0,
+      "null_mean": 19.4,
+      "null_min": 4.0,
+      "null_sd": 9.3018,
+      "p": 0.004975124378109453,
+      "real": 363.0
+    },
+    "n_p_lt_1e2": {
+      "n_null_ge": 0,
+      "null_max": 53.0,
+      "null_mean": 18.535,
+      "null_min": 4.0,
+      "null_sd": 8.8782,
+      "p": 0.004975124378109453,
+      "real": 330.0
+    },
+    "n_p_lt_1e3": {
+      "n_null_ge": 0,
+      "null_max": 43.0,
+      "null_mean": 17.005,
+      "null_min": 3.0,
+      "null_sd": 7.9227,
+      "p": 0.004975124378109453,
+      "real": 228.0
+    },
+    "n_p_lt_1e4": {
+      "n_null_ge": 200,
+      "null_max": 0.0,
+      "null_mean": 0.0,
+      "null_min": 0.0,
+      "null_sd": 0.0,
+      "p": 1.0,
+      "real": 0.0
+    }
+  }
+}

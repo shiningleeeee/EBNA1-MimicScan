@@ -1,0 +1,85 @@
+{
+  "calibration": {
+    "n_null": 76,
+    "n_null_folded_exposed": 19,
+    "n_real_folded_exposed": 1,
+    "null_rate": 0.25,
+    "p_unconditional": 0.2597,
+    "real_rate": 0.0714
+  },
+  "calls": {
+    "disordered_or_loop_exposed": 11,
+    "partly_buried": 2,
+    "surface_of_folded_domain": 1
+  },
+  "caveat": "pLDDT is model confidence and rSASA is computed on a predicted monomer; both are proxies for accessibility, not measurements. This stage is deterministic once the model cache is complete; a match whose model could not be retrieved is listed under 'excluded' rather than counted as unexposed.",
+  "excluded": [
+    {
+      "acc": "A2VEC9",
+      "family": "N_A",
+      "reason": "span outside model",
+      "seed_id": "N_A.C3.144"
+    },
+    {
+      "acc": "O95613",
+      "family": "N_A",
+      "reason": "RuntimeError",
+      "seed_id": "N_A.C3.156"
+    },
+    {
+      "acc": "Q8WXG9",
+      "family": "N_A",
+      "reason": "span outside model",
+      "seed_id": "N_A.C3.178"
+    },
+    {
+      "acc": "Q5T011",
+      "family": "N_A",
+      "reason": "span outside model",
+      "seed_id": "N_A.C3.177"
+    }
+  ],
+  "n_candidates": 14,
+  "n_folded_exposed": 1,
+  "null_calls": {
+    "buried": 6,
+    "disordered_or_loop_exposed": 44,
+    "partly_buried": 7,
+    "surface_of_folded_domain": 19
+  },
+  "parameters": {
+    "exposed_rsasa": 0.25,
+    "folded_plddt": 70.0,
+    "null_per_family": 40,
+    "probe_radius": 1.4,
+    "sphere_points": 92
+  },
+  "query": {
+    "acc": "P03211",
+    "error": null,
+    "fraction_plddt_very_low": 0.82,
+    "global_plddt": 41.37,
+    "segments": {
+      "C1_394_399": {
+        "call": "disordered_or_loop_exposed",
+        "plddt_mean": 30.443333333333328,
+        "rsasa_mean": 0.8988663546645898
+      },
+      "C2_402_406": {
+        "call": "disordered_or_loop_exposed",
+        "plddt_mean": 27.022,
+        "rsasa_mean": 0.7747434568785644
+      },
+      "C3_431_440": {
+        "call": "disordered_or_loop_exposed",
+        "plddt_mean": 25.974,
+        "rsasa_mean": 0.8141163170106036
+      },
+      "block": {
+        "call": "disordered_or_loop_exposed",
+        "plddt_mean": 33.33593360995851,
+        "rsasa_mean": 0.9389671870827248
+      }
+    }
+  }
+}

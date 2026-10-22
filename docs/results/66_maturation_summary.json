@@ -1,0 +1,18 @@
+{
+  "calls": {
+    "fully_in_propep": 3,
+    "fully_in_signal": 3,
+    "fully_in_transit": 2,
+    "retained_in_chain": 350,
+    "retained_unannotated": 1,
+    "spans_removed_boundary": 4
+  },
+  "caveat": "retained_unannotated means no removal feature covers the span, but no mature chain is annotated either; it is reported as state-unknown and is NOT counted as a confirmed pass.",
+  "n_classified": 363,
+  "n_confirmed": 350,
+  "n_removed": 12,
+  "n_retained": 351,
+  "n_unannotated": 1,
+  "source": "data/cache/uniprot_processing.tsv",
+  "source_sha256": "fa443f966e18949c678890a0d92f576b5cf592e377512d3eaafe6f1287b335a7"
+}

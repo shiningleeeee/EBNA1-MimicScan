@@ -1,0 +1,74 @@
+{
+  "axes": [
+    "ax_order_signal",
+    "ax_length_ok",
+    "ax_identity_ok",
+    "ax_target_normal",
+    "ax_query_normal",
+    "ax_cns",
+    "ax_surface",
+    "ax_outside_gablock"
+  ],
+  "calibration": {
+    "frac_ge_min_score": {
+      "n_null_ge": 4,
+      "null_max": 0.6,
+      "null_mean": 0.2022,
+      "null_min": 0.0,
+      "null_sd": 0.1243,
+      "p": 0.0249,
+      "real": 0.46831955922865015
+    },
+    "max_score": {
+      "n_null_ge": 27,
+      "null_max": 8.0,
+      "null_mean": 6.605,
+      "null_min": 5.0,
+      "null_sd": 0.8261,
+      "p": 0.1393,
+      "real": 8
+    },
+    "n_ge_4": {
+      "n_null_ge": 0,
+      "null_max": 45.0,
+      "null_mean": 14.39,
+      "null_min": 2.0,
+      "null_sd": 7.9298,
+      "p": 0.005,
+      "real": 338
+    },
+    "n_ge_5": {
+      "n_null_ge": 0,
+      "null_max": 37.0,
+      "null_mean": 9.195,
+      "null_min": 1.0,
+      "null_sd": 6.0215,
+      "p": 0.005,
+      "real": 290
+    },
+    "n_ge_6": {
+      "n_null_ge": 0,
+      "null_max": 23.0,
+      "null_mean": 4.07,
+      "null_min": 0.0,
+      "null_sd": 3.4328,
+      "p": 0.005,
+      "real": 170
+    }
+  },
+  "composite_b": 10000,
+  "interval_b": 1000000,
+  "interval_top_n": 6,
+  "min_score": 6,
+  "n_at_or_above_min_score": 170,
+  "note": "max_score calibration is the honest one for 'is the best entry special'; the n_ge_* rows must be read as FRACTIONS, not counts, because the real query reports ~18x more alignments than a shuffle and therefore has more chances to reach any threshold.",
+  "score_distribution": {
+    "2": 1,
+    "3": 24,
+    "4": 48,
+    "5": 120,
+    "6": 121,
+    "7": 43,
+    "8": 6
+  }
+}

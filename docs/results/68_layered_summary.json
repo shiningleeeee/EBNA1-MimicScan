@@ -1,0 +1,28 @@
+{
+  "both_folded_exposed": {
+    "no": 41,
+    "not_modelled": 4,
+    "yes": 10
+  },
+  "comp_accessible": {
+    "no": 43,
+    "yes": 12
+  },
+  "n_overlapping_published_query": 6,
+  "n_overlapping_published_target": 0,
+  "n_rows": 55,
+  "note": "axes are reported side by side and never multiplied into a score. comp_accessible excludes CRYAB, a published mimic, so it is an annotation and never a filter. Both overlap columns are post-hoc sensitivity audits of our own run: the target column says we re-found a known pair, the query column says we landed on a validated EBNA1 stretch. Neither influences the ordering.",
+  "published_entries_in_config": 5,
+  "query_region_hits": {
+    "ANO2": 2,
+    "CRYAB": 4,
+    "HEPACAM": 4,
+    "MBP": 5,
+    "MEF2B": 3
+  },
+  "seq_axis": {
+    "z>=3": 32,
+    "z>=6": 14,
+    "z>=8": 9
+  }
+}

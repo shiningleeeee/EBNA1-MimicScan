@@ -1,0 +1,24 @@
+{
+  "best_acc": "Q9HCR9",
+  "best_aln_len": 163,
+  "best_evalue": 3.088,
+  "best_gene": "PDE11A",
+  "best_identity": 29.4,
+  "ga_block_overlap": 0,
+  "mmseqs": {
+    "comp_bias_corr": 1,
+    "e_cutoff": 10000,
+    "max_seqs": 20000,
+    "sensitivity": 7.5
+  },
+  "n_alignments": 363,
+  "n_evalue_below_1": 0,
+  "n_targets": 363,
+  "note": "mmseqs2 default low-complexity handling and --comp-bias-corr are both active; their separate contributions to the absence of 90-330 hits have not been audited (parameter matrix outstanding).",
+  "region_counts": {
+    "C-terminal": 68,
+    "N-terminal": 7,
+    "SPR-rich (370-445)": 12,
+    "folded core (476-585)": 276
+  }
+}

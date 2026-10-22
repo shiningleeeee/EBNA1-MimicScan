@@ -1,0 +1,27 @@
+# Environment and toolchain (rebuild with `make all` / `bash run.sh`)
+env/
+
+# Fetched inputs and API caches: large, licensed to their sources, and
+# reproducible from data/MANIFEST.tsv via `make data`.
+data/cache/
+
+# Scratch space for mmseqs2 databases
+work/
+
+# Run logs
+logs/
+
+# Pipeline outputs. The published tables are archived under docs/results/;
+# regenerate everything with `bash run.sh`.
+reports/
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+
+# Editor / OS noise
+.DS_Store
+Thumbs.db
+*.swp

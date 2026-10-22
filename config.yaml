@@ -1,0 +1,219 @@
+# ph-mimic — single source of truth for every parameter in the pipeline.
+# Changing anything here changes config_sha256 recorded in reports/run_manifest.json,
+# so any run can be tied back to exactly the settings that produced it.
+
+project: ph-mimic
+version: "1.0.0"
+
+# ---------------------------------------------------------------- data inputs
+data:
+  query: data/cache/P03211.fasta            # EBNA1_EBVB9, 641 aa
+  proteome: data/cache/human_swissprot.fasta # Homo sapiens, reviewed
+  manifest: data/MANIFEST.tsv                # accession -> sha256 + UniProt release
+  cache_dir: data/cache
+  uniprot_annot: data/cache/uniprot_human_annot.tsv
+  require_sha256: true                       # pipeline refuses to start on mismatch
+  uniprot_release_expected: "2026_03"
+
+# --------------------------------------------------------------- seed motifs
+# The seed is the ONLY experimental anchor in this problem: the EBNA1 386-440
+# region where antibodies/sera have validated cross-reactive epitopes. Everything
+# downstream asks "what does a match to this exact validated peptide look like",
+# never "what does a significant alignment look like".
+seeds:
+  random_state: 42
+  real:
+    - id: C1
+      motif: PPRRPP
+      ebna1: [394, 399]
+      max_mismatch: 0
+      provenance: "Lum 2026 PNAS e2519445123, PPRRPP motif; Hecker EBNA1 391-410"
+    - id: C2
+      motif: RRPFF
+      ebna1: [402, 406]
+      max_mismatch: 0
+      provenance: "Thomas 2023 Sci Adv adg3032, RRPFF core 5/5 (CRYAB)"
+    - id: C3
+      motif: PGAIEQGPAD
+      ebna1: [431, 440]
+      max_mismatch: 3
+      provenance: "Tengvall 2019, ANO2 7/10 identical over 10"
+  null:
+    # family N_A: every distinct arrangement of the seed's own residue multiset
+    # (exhaustive over the null space when small enough -- no sampling variance)
+    shuffle_real: true
+    enumerate_max: 200
+    # family N_B: random hexamers drawn from a two-residue alphabet weighted by
+    # human proteome frequencies, i.e. generic low-complexity peptides
+    proteome_random_n: 200
+    proteome_random_len: 6
+
+# ------------------------------------------------------ alignment channel (C)
+alignment:
+  enabled: true
+  kmer: 4
+  seed_score_min: 14        # NO-OP in the reference implementation (any 4-mer scores >= 16)
+  seed_gar_max: 0.75
+  xdrop: 6
+  slack: 20
+  gap_open: 11
+  gap_ext: 1                # DEAD PARAMETER in the reference implementation
+  min_len: 6
+  min_score: 20
+  exhaustive_iter: 4
+  threads: 8
+
+# --------------------------------------------------------- library search
+mmseqs:
+  enabled: true             # s61 runs the unbiased local-similarity channel
+  sensitivity: 7.5
+  max_seqs: 20000
+  e_cutoff: 10000
+  comp_bias_corr: 1
+  threads: 14
+  window_sizes: [10, 20, 40]
+  batch_b: 1000
+
+# ------------------------------------------------------------- composition
+composition:
+  gar_block: [90, 330]      # EBNA1 90-330 is ~99.6% Gly/Ala (one Arg at 329)
+  window: 20
+
+# ------------------------------------------- unbiased analysis chain (s61-s71)
+# These stages reproduce the numbers that were once only in ad-hoc scripts and
+# hand-typed commands. Every parameter below is a decision that changes the
+# answer, so each one is recorded with the run rather than living in shell
+# history. Seeds are fixed; the resolution floor of every empirical p value is
+# 1/(1+b), which is reported alongside the p so a "significant" result can never
+# be read past the number of randomisations that produced it.
+mining:
+  enabled: true
+  query: data/cache/P03211.fasta
+  threads: 8                # pair_null is single-threaded; mmseqs uses mmseqs.threads
+  pair_null:
+    b: 10000                # per-alignment shuffles; floor 1e-4
+    b_interval: 1000000     # only for the top band, to get an interval that is not saturated
+    seed: 42
+    flank: 5                # extend the target side only; the query side is the span itself
+  selection_null:
+    n_shuffles: 200         # outer: composition-preserving shuffles of the whole query
+    b: 2000                 # inner: per-alignment shuffles for each shuffle
+    seed: 42
+  composite:
+    b: 10000
+    min_score: 6
+    z_min: 3.0              # order_signal axis
+    ent_min: 2.8            # composition normality, same threshold the audit used
+    maxfrac_max: 0.30
+  maturation:
+    cache: data/cache/uniprot_processing.tsv
+    url: "https://rest.uniprot.org/uniprotkb/stream"
+    query: "organism_id:9606 AND reviewed:true"
+    fields: "accession,gene_names,length,ft_signal,ft_propep,ft_chain,ft_transit,ft_init_met,ft_peptide,cc_subcellular_location,cc_tissue_specificity,keyword"
+  structure_pair:
+    cache_dir: "data/cache/alphafold"
+    probe_radius: 1.4
+    sphere_points: 92
+    folded_plddt: 70
+    exposed_rsasa: 0.25
+  iedb:
+    api: "https://query-api.iedb.org"
+    limit: 5000
+    min_margin_z: 6.0       # the subset that ever enters a shortlist
+    cache_dir: "data/cache/iedb"
+    references:             # calibration for what an empty result means
+      - {acc: P03211, gene: EBNA1}
+      - {acc: Q14CZ8, gene: HEPACAM}
+      - {acc: Q9NQ90, gene: ANO2}
+      - {acc: P02511, gene: CRYAB}
+      - {acc: Q02080, gene: MEF2B}
+  final:
+    min_margin_z: 3.0
+    min_aln_len: 20
+    min_identity: 40.0
+
+# ------------------------------------------------ published mimicry claims
+# Recorded so the report can state, per run, which published claims this screen
+# recovers and which it structurally cannot. These are NOT ground truth for the
+# score: three of the five are also hits of a composition-only null.
+published:
+  - acc: P02511
+    gene: CRYAB
+    region: [11, 16]
+    ebna1_region: [402, 406]
+    claim: "alpha B-crystallin, RRPFF core, linear"
+    source: "Thomas 2023 Sci Adv 10.1126/sciadv.adg3032"
+    reachable: true
+  - acc: Q9NQ90
+    gene: ANO2
+    region: [140, 149]
+    ebna1_region: [431, 440]
+    claim: "anoctamin-2, PGAIEQGPAD/PGDIELGPLD 7 of 10, linear"
+    source: "Tengvall 2019; Lum 2026 PNAS Table 1"
+    reachable: true
+  - acc: Q02080
+    gene: MEF2B
+    region: [272, 277]
+    ebna1_region: [394, 399]
+    claim: "MEF2B, shared PPRRPP motif, cross-reactivity of a clonal antibody"
+    source: "Lum 2026 PNAS 10.1073/pnas.2519445123 (PPRRPP section, not Table 1)"
+    reachable: true
+  - acc: Q14CZ8
+    gene: HEPACAM
+    region: [370, 389]
+    ebna1_region: [386, 405]
+    claim: "GlialCAM, linear region defined by the 7K7R crystal structure"
+    source: "Lanz 2022 Nature; Lum 2026 PNAS Table 1 (AA 393-399)"
+    reachable: false
+    why: "only 6 of 20 residues identical to EBNA1 386-405 (SSPPRA vs PPRRPP); the epitope is defined structurally, not by linear identity"
+  - acc: P02686
+    gene: MBP
+    region: [411, 426]
+    ebna1_region: [411, 426]
+    claim: "myelin basic protein, conformational mimicry"
+    source: "Lum 2026 PNAS Table 1 (AA 411-426, conformational)"
+    reachable: false
+    why: "no linear homology claimed by the source; a peptide screen cannot see a conformational epitope"
+
+# ------------------------------------------------------- prioritisation axes
+# NOTE: literature support is deliberately NOT part of the score. Whether a
+# protein has been studied is confounded with how hard people looked; it is
+# reported as a separate column and can only ever weaken, never create, a call.
+priority:
+  exact_points: 2           # full-length identical match
+  partial_points: 1         # >= partial_frac identical over the seed length
+  partial_frac: 0.70
+  cns_points: 1             # UniProt tissue specificity / keywords name CNS
+  surface_points: 1         # UniProt subcellular location is antibody-reachable
+  max_score: 4
+
+# ---------------------------------------------------------- structure channel
+# Same question as the sequence channel, asked in a different space: if the
+# peptide matches, can an antibody reach it? A motif inside a folded core
+# cannot be a serological mimic even when the sequence is identical.
+# AlphaFold models are used as a proxy; pLDDT is model confidence and rSASA is
+# computed on a predicted monomer, so neither is a measurement of the real
+# molecule. Nothing here feeds the priority score.
+structure:
+  enabled: true
+  cache_dir: "data/cache/alphafold"
+  probe_radius: 1.4         # A, water probe for the Shrake-Rupley calculation
+  sphere_points: 92         # test points per atom
+  folded_plddt: 70          # AlphaFold's own "confident" line
+  exposed_rsasa: 0.25       # >= this mean relative SASA counts as exposed
+  null_per_family: 40       # null motif matches sampled per family
+  query_accession: P03211   # EBNA1, repeated here so the stage is self-describing
+
+# ------------------------------------------- axis validation (s72, declared first)
+# A statistical axis (ranking_axis) may order candidates only if it keeps at
+# least `min_positives_passing` of the published pairs AND keeps at most
+# `max_pool_retained` of the pool. Both numbers are declared here, before the
+# stage measures anything, so the verdict cannot be tuned into existence.
+validation:
+  min_positives_passing: 3
+  max_pool_retained: 0.25
+
+# ------------------------------------------------------------------ output
+report:
+  title: "EBNA1 molecular mimicry -- prioritised candidate screen"
+  top_n: 20

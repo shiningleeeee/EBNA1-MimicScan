@@ -1,0 +1,136 @@
+{
+  "alignment": {
+    "exhaustive": {
+      "n_hits": 80255,
+      "n_overlapping_block": 16617,
+      "top_score": 542.0
+    },
+    "seeded": {
+      "n_hits": 59108,
+      "n_overlapping_block": 194,
+      "top_score": 77.0
+    }
+  },
+  "best_real_score": 4,
+  "calibration": [
+    {
+      "best_acc": "Q02246",
+      "best_gene": "CNTN2",
+      "best_score": 4,
+      "length": 6,
+      "motif": "PPRRPP",
+      "n_proteins": 6,
+      "null_A": {
+        "n_null": 14,
+        "n_null_ge": 12,
+        "n_null_present": 14,
+        "null_max": 4,
+        "null_median_present": 4.0,
+        "p_conditional": 0.8667,
+        "p_unconditional": 0.8667
+      },
+      "null_B": {
+        "n_null": 200,
+        "n_null_ge": 29,
+        "n_null_present": 200,
+        "null_max": 4,
+        "null_median_present": 3.0,
+        "p_conditional": 0.1493,
+        "p_unconditional": 0.1493
+      },
+      "null_B_note": "",
+      "seed_id": "C1"
+    },
+    {
+      "best_acc": "Q9HCI5",
+      "best_gene": "MAGEE1",
+      "best_score": 4,
+      "length": 5,
+      "motif": "RRPFF",
+      "n_proteins": 3,
+      "null_A": {
+        "n_null": 29,
+        "n_null_ge": 7,
+        "n_null_present": 28,
+        "null_max": 4,
+        "null_median_present": 3.0,
+        "p_conditional": 0.2759,
+        "p_unconditional": 0.2667
+      },
+      "null_B": null,
+      "null_B_note": "N_B seeds differ in length; not comparable",
+      "seed_id": "C2"
+    },
+    {
+      "best_acc": "Q9NQ90",
+      "best_gene": "ANO2",
+      "best_score": 3,
+      "length": 10,
+      "motif": "PGAIEQGPAD",
+      "n_proteins": 5,
+      "null_A": {
+        "n_null": 200,
+        "n_null_ge": 68,
+        "n_null_present": 196,
+        "null_max": 3,
+        "null_median_present": 2.0,
+        "p_conditional": 0.3503,
+        "p_unconditional": 0.3433
+      },
+      "null_B": null,
+      "null_B_note": "N_B seeds differ in length; not comparable",
+      "seed_id": "C3"
+    }
+  ],
+  "composition": {
+    "block": [
+      90,
+      330
+    ],
+    "block_ga_fraction": 0.995851,
+    "block_length": 241,
+    "block_n_distinct": 3,
+    "block_non_ga": [
+      {
+        "aa": "R",
+        "pos": 329
+      }
+    ],
+    "block_windows_ga_max": 1.0,
+    "block_windows_ga_min": 0.95,
+    "profile_max_ga_outside_block": 0.95,
+    "query": "P03211",
+    "query_length": 641,
+    "window": 20,
+    "windows_fully_inside_block": 222
+  },
+  "config_sha256": "8b1de6ed868bf37daa4c6875c99387ad37ba23a813a2b0acc1e1cc23d1004e3c",
+  "n_candidate_proteins": 14,
+  "n_matches": 14,
+  "n_null_A": 243,
+  "n_null_B": 200,
+  "n_real_seeds": 3,
+  "provenance_inputs": {
+    "data.proteome": {
+      "file": "data/cache/human_swissprot.fasta",
+      "manifest_sha256": "bf1bc7e188e55199a2447fc20d25834db5f7f798daa818432370deb4a6b0df5e",
+      "n_seqs": 20431,
+      "ok": true,
+      "release_date": "2026-09-02",
+      "sha256": "bf1bc7e188e55199a2447fc20d25834db5f7f798daa818432370deb4a6b0df5e",
+      "source_url": "https://rest.uniprot.org/uniprotkb/stream?query=organism_id:9606+AND+reviewed:true&format=fasta",
+      "uniprot_release": "2026_03"
+    },
+    "data.query": {
+      "file": "data/cache/P03211.fasta",
+      "manifest_sha256": "56d0ecacb15063e79976c62b02882ad0f49f0cb83a26a5868e51311e18ab9b0a",
+      "n_seqs": 1,
+      "ok": true,
+      "release_date": "2026-09-02",
+      "sha256": "56d0ecacb15063e79976c62b02882ad0f49f0cb83a26a5868e51311e18ab9b0a",
+      "source_url": "https://rest.uniprot.org/uniprotkb/P03211.fasta",
+      "uniprot_release": "2026_03"
+    }
+  },
+  "version": "1.0.0"
+}

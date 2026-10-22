@@ -1,0 +1,28 @@
+{
+  "declared_before_measuring": {
+    "max_pool_retained": 0.25,
+    "min_positives_passing": 3,
+    "positives": [
+      "CRYAB",
+      "ANO2",
+      "MEF2B",
+      "HEPACAM",
+      "MBP"
+    ],
+    "positives_a_linear_screen_cannot_see": [
+      "HEPACAM",
+      "MBP"
+    ]
+  },
+  "n_axes": 10,
+  "n_hard_constraints": 1,
+  "n_ranking_axes": 8,
+  "n_ranking_axes_passed": 0,
+  "note": "A ranking axis keeping fewer than 3 of 4 published pairs, or keeping more than 25% of the pool, cannot discriminate and is forbidden from ordering candidates. Positive values are computed by the same axis builder used for the pool; no threshold was tuned after seeing them.",
+  "verdicts": {
+    "annotation_only": 1,
+    "fail: loses positives": 6,
+    "fail: not selective": 2,
+    "pass": 1
+  }
+}

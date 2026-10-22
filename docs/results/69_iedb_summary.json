@@ -1,0 +1,42 @@
+{
+  "api": "https://query-api.iedb.org",
+  "failed": [],
+  "limit": 5000,
+  "min_margin_z": 6.0,
+  "n_failed": 0,
+  "n_queried": 23,
+  "n_with_any_overlap": 0,
+  "n_zero_records": 22,
+  "note": "a hit is somebody else's assay, not our evidence; a miss reports research attention, not biology. Never used as a filter.",
+  "queried_counts": {
+    "yes": 23
+  },
+  "queried_utc": "2026-10-22T11:47:47Z",
+  "references": [
+    {
+      "acc": "P02511",
+      "gene": "CRYAB",
+      "n_records": 57
+    },
+    {
+      "acc": "P03211",
+      "gene": "EBNA1",
+      "n_records": 507
+    },
+    {
+      "acc": "Q02080",
+      "gene": "MEF2B",
+      "n_records": 0
+    },
+    {
+      "acc": "Q14CZ8",
+      "gene": "HEPACAM",
+      "n_records": 156
+    },
+    {
+      "acc": "Q9NQ90",
+      "gene": "ANO2",
+      "n_records": 70
+    }
+  ]
+}
