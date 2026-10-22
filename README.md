@@ -1,5 +1,8 @@
 # EBNA1-MimicScan
 
+[![ci](https://github.com/shiningleeeee/EBNA1-MimicScan/actions/workflows/ci.yml/badge.svg)](https://github.com/shiningleeeee/EBNA1-MimicScan/actions/workflows/ci.yml)
+[![licence: MIT](https://img.shields.io/badge/licence-MIT-blue.svg)](LICENSE)
+
 A reproducibility-first screen for human proteins that the immune system could
 mistake for EBNA1, and the negative results that constrain it.
 
