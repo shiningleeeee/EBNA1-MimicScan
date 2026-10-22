@@ -66,7 +66,8 @@ archive:
 	mkdir -p docs/results docs/figures
 	for f in CANDIDATES.md REPORT.md summary.json 40_candidates_ranked.tsv \
 		45_local_similarity.tsv 46_pair_null.tsv 55_candidates_final.tsv \
-		55_published_pair_null.tsv \
+		55_published_pair_null.tsv 60b_mmseqs_param_matrix.tsv \
+		60b_mmseqs_param_matrix.json \
 		65_structure_real.tsv 72_axis_validation.tsv 72_axis_positives.tsv \
 		73_candidate_cards.tsv 73_candidate_cards_summary.json \
 		40_null_calibration.json 60_composition_summary.json \

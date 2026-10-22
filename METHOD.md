@@ -166,10 +166,24 @@ Before any alignment is scored, the query is described:
 
 For EBNA1 that block is 241 residues at 99.59 % Gly/Ala, three distinct residue
 types, the only non-Gly/Ala residue being R329. **Zero** of the 363 reported
-alignments overlap it, and the reason for that is *not* established: MMseqs2's
-default low-complexity masking and `--comp-bias-corr 1` both act on it, and
-their separate contributions have not been audited. The report says exactly
-that, and no more.
+alignments overlap it, and the reason is now determined rather than assumed. A
+parameter matrix (`src/analysis/60_mmseqs_param_matrix.py`, six cells, each with
+its own 40-aa windowed null) separates the two mechanisms:
+
+| comp-bias-corr | tantan masking | alignments | best E | overlapping 90-330 | p (own null) |
+|---|---|---|---|---|---|
+| **1** | on (baseline) | 363 | 3.088 | **0** | 0.010 |
+| 0 | on | 3 628 | **0.0** | **1 254** | **0.995** |
+| **1** | off | 431 | 3.088 | **0** | 0.010 |
+| 0 | off | 4 385 | **0.0** | **1 696** | **0.881** |
+
+Turning composition correction off restores 1 254-1 696 "significant" alignments
+to the Gly-Ala block with E = 0, and each such cell then fails its own null -- the
+real sequence is not above what a window-shuffled EBNA1 achieves. So the zero
+overlap is attributable to composition correction; masking only moves the total
+(363 vs 431); and an uncorrected E-value here would have produced exactly the
+artefact this project exists to remove. Masking the query instead of the database
+changes almost nothing while correction is on (431 vs 429).
 
 The census that decides how a motif may be read:
 

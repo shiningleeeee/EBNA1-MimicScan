@@ -94,9 +94,15 @@ def run(ctx):
             e_cutoff=cfg.get("mmseqs.e_cutoff"),
             comp_bias_corr=cfg.get("mmseqs.comp_bias_corr"),
         ),
-        note=("mmseqs2 default low-complexity handling and --comp-bias-corr are "
-              "both active; their separate contributions to the absence of "
-              "90-330 hits have not been audited (parameter matrix outstanding)."),
+        note=("mmseqs2 default low-complexity masking and --comp-bias-corr are "
+              "both active. Their contributions are separated in "
+              "src/analysis/60_mmseqs_param_matrix.py: with --comp-bias-corr 1 "
+              "the Gly-Ala block collects 0 overlapping alignments whether or "
+              "not tantan masking is on (363 vs 431 alignments overall), while "
+              "with --comp-bias-corr 0 it collects 1254 (mask 1) / 1696 "
+              "(mask 0) overlapping hits and each such cell fails its own "
+              "windowed null (p=0.995 / 0.881). The zero overlap is therefore "
+              "attributable to composition correction, not to masking."),
     ))
 
     ctx.log(f"    {len(frame)} alignments over {frame['acc'].nunique()} proteins; "

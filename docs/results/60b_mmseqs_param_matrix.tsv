@@ -1,0 +1,7 @@
+cell	query_masked_90_330	target_mask	comp_bias_corr	n_align	best_evalue	best_target	n_e_lt_1	n_e_lt_10	n_e_lt_100	n_overlapping_ga_block	null_n_align_mean	null_n_align_sd	null_n_align_max	null_best_evalue_median	p_n_align	n_null
+mask1_cbc1	False	1	1	363	3.088	Q9HCR9	0	2	12	0	222.93	47.59	464	18.8	0.01	200
+mask1_cbc0	False	1	0	3628	0.0	A0A0J9YXQ4	635	958	1446	1254	3840.38	84.5	4084	0.0	0.995	200
+mask0_cbc1	False	0	1	431	3.088	Q9HCR9	0	3	20	0	245.53	50.93	502	14.26	0.01	200
+mask0_cbc0	False	0	0	4385	0.0	P23490	952	1368	1945	1696	4500.12	95.04	4793	0.0	0.8806	200
+qmask_cbc1	True	0	1	429	3.088	Q9HCR9	0	3	20	0	246.4	50.95	501	14.26	0.01	200
+qmask_cbc0	True	0	0	3793	0.0	P20908	474	860	1431	0	3486.22	123.85	3857	0.0	0.0149	200

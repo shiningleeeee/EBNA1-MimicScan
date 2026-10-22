@@ -10,6 +10,7 @@ recomputed from the table it summarises.
 from __future__ import annotations
 
 import json
+import pathlib
 
 import pandas as pd
 import pytest
@@ -102,13 +103,30 @@ def test_benchmark_audit_is_a_separate_table(reports):
         "would look like an input to the ranking")
 
 
-def test_strategy_of_negative_results_is_recorded(reports):
+def test_low_complexity_attribution_is_recorded(reports):
+    """Either the attribution is flagged open, or the audit it cites exists.
+
+    This assertion has already changed once: it used to demand that the note keep
+    saying "not audited", and it failed the moment the parameter matrix was run,
+    which is the behaviour we want from a test that guards a claim rather than a
+    spelling.
+    """
     summary = _json(reports, "61_mmseqs_summary.json")
     assert "n_evalue_below_1" in summary
     assert "ga_block_overlap" in summary
     note = summary["note"].lower()
-    assert "not been audited" in note or "unaudited" in note or "未审计" in note, (
-        "the low-complexity attribution must stay flagged as unaudited")
+    if "not been audited" in note or "unaudited" in note:
+        return  # honest but unresolved; nothing further to check
+    assert "60_mmseqs_param_matrix" in note, (
+        "if the note attributes the zero overlap to a mechanism, it must name "
+        "the audit that separated them")
+    assert "comp-bias-corr" in note
+    root = pathlib.Path(__file__).resolve().parents[1]
+    assert (root / "src/analysis/60_mmseqs_param_matrix.py").exists()
+    # the frozen table only exists in the packaged repository, not in the
+    # development tree, so the check follows the layout that is present
+    if (root / "docs/results").is_dir():
+        assert (root / "docs/results/60b_mmseqs_param_matrix.tsv").exists()
 
 
 def test_selection_null_reports_its_resolution_floor(reports):
